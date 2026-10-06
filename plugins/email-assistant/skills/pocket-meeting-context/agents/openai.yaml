@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pocket Meeting Context"
+  short_description: "Compare a saved meeting with relevant past meetings"
+  default_prompt: "Use $pocket-meeting-context after pocket-meeting-summary has saved the current report to add what changed since relevant past meetings and reconcile the current index entry."

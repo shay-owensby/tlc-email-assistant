@@ -12,6 +12,7 @@ PACKAGE = ROOT / 'plugins' / 'email-assistant'
 EXPECTED_SKILLS = {
     'manage-email-assistant', 'setup-email', 'email-triage',
     'pocket-meeting-summary', 'pocket-meeting-follow-up',
+    'pocket-summary-to-wrike', 'wrike-tasks', 'pocket-meeting-context',
 }
 
 
@@ -80,8 +81,9 @@ def main():
                 links += 1
     dist = ROOT / 'dist'
     dist.mkdir(exist_ok=True)
-    guides = sorted((ROOT / 'docs').glob('*'))
-    require(len(guides) == 5 and all(p.is_file() for p in guides), 'Missing delivery guides')
+    guide_names = ('ADMIN-GUIDE.md', 'RELEASE-NOTES.md', 'ROLLOUT-TRACKER.csv', 'START-HERE.md', 'USER-GUIDE.md')
+    guides = [ROOT / 'docs' / name for name in guide_names]
+    require(all(p.is_file() for p in guides), 'Missing delivery guides')
     documentation = guides + [ROOT / 'README.md', ROOT / 'PILOT.md']
     for path in documentation:
         content = path.read_text(encoding='utf-8')
@@ -115,12 +117,12 @@ def main():
 
 Release: {version}. This report describes structural validation by scripts/build_release.py.
 
-- All five expected skill entrypoints have matching names and nonempty descriptions.
+- All {len(EXPECTED_SKILLS)} expected skill entrypoints have matching names and nonempty descriptions.
 - Portable and compatibility manifests agree on identity and presentation.
 - Marketplace path, documented text limits, icon paths and SVG dimensions pass.
 - {links} relative Markdown references resolve within the plugin.
 - Plugin text has no author-machine absolute paths; no symlinks, environment files, key files, or Python cache files are included.
-- Both release ZIPs pass integrity, unique-path, path-safety, five-skill, and byte-for-byte archive readback checks.
+- Both release ZIPs pass integrity, unique-path, path-safety, {len(EXPECTED_SKILLS)}-skill, and byte-for-byte archive readback checks.
 - Client guides have valid local links; the client delivery ZIP includes these guides and only this release's packages.
 
 These checks do not certify the complete platform schema, installation, or skill behavior. Run the skill-creator validator separately after editing skills. Individual-account installation and update delivery, live connector behavior, user isolation, rule-change handling, meeting reports, and scheduled cloud execution remain pending in PILOT.md. No publication or scheduling is performed by this build.

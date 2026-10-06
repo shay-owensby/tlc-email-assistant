@@ -1,5 +1,20 @@
 # Release notes
 
+## 0.5.0 — October 6, 2026
+
+- Adds a Spaces-based pocket-meeting-context skill adapted from Productivity and an hourly cloud workflow with separate summary, context, follow-up and Wrike stages.
+- Renames the unreleased capture skill to pocket-summary-to-wrike to match the client prompt.
+- Successful no-new-meeting runs return no user-facing output; failed checks are surfaced once rather than reported as empty successes.
+- Adds client schedule instructions and an activation preflight; no personal schedule is activated by these documentation changes.
+
+## 0.4.0 — October 6, 2026
+
+- Adds pocket-summary-to-wrike for reading each saved Pocket report in the requested scope and capturing only clear assignments or accepted commitments to the connected user.
+- Bundles wrike-tasks for identity/destination resolution, duplicate checks, task creation/reuse, and readback.
+- Adds authorized manager and summary handoffs with per-report capture progress, revision handling, and unknown-outcome recovery. Existing users remain disabled for capture until they authorize it.
+- Retains cloud-only recurring execution and supports explicitly supplied upstream Markdown reports for interactive capture.
+- Packages seven skills; live Wrike and scheduled capture remain pending client pilot verification. No tasks or schedules are created by this release build.
+
 ## 0.3.2 — October 6, 2026
 
 - Selects the public `shay-owensby/tlc-email-assistant` GitHub marketplace for the 15 individual Pro accounts; no collaborator invitations needed.

@@ -9,7 +9,7 @@ Do not create a new settings Page for a read-only status request. During setup/a
 - Settings Page: enabled workflows; meeting scope and destinations; digest style; cloud scheduling preferences; pending decisions; canonical resource/task links; configuration revision.
 - Inbox Triage Profile: approved inbox rules, VIPs, drafting style, exceptions, source permissions, and rule version. Keep this as the single source of truth for inbox behavior. In an older profile, schedule fields are proposed preferences; after activation, the settings Page and verified scheduler govern the actual schedule.
 - Runtime state: operating authorization, exact active rule/configuration snapshot, task ID, pause/revocation flags, progress, leases, action receipts, draft ownership, and retry queue.
-- Meeting index: one record per recording with verified report reference; store follow-up status/draft references in runtime state when needed.
+- Meeting index: one record per recording with verified report reference; store follow-up status/draft references and separate per-report task-capture status/receipts in runtime state when needed.
 
 Never let a second copy of an active rule silently disagree with the profile. If linked data conflicts, read the live scheduler and current approved records, then ask only for unresolved policy choices. Scheduler state establishes whether a task is enabled, not whether it is authorized to perform a new action.
 
@@ -18,9 +18,10 @@ Never let a second copy of an active rule silently disagree with the profile. If
 - Owner/user and workspace/tenant; mailbox/provider; shared-mailbox policy owner if applicable.
 - Configuration revision and last confirmed change date.
 - Canonical profile/runtime/index Page IDs and links.
-- Enabled workflows: inbox triage, due follow-up review, Pocket reports, meeting follow-up text, optional authorized Outlook meeting drafts.
+- Enabled workflows: inbox triage, due follow-up review, Pocket reports, optional historical meeting context, meeting follow-up text, optional authorized Outlook meeting drafts, optional authorized Pocket-to-Wrike task capture (disabled until explicitly enabled).
 - Pocket scope: account/folders, initial date cutoff, attendee/audience handling, report/index destination.
-- Digest: delivery in the cloud task, preferred length, notification conditions, daily time/timezone, quiet hours, optional all-clear.
+- Wrike capture: connected account and canonical user ID, verified writable parent ID/type/name, source report/index references, initial backlog and per-run limits, authorization and runtime ledger reference. Keep this separate from read-only Wrike context permissions.
+- Digest: delivery in the cloud task, preferred length, notification conditions, daily time/timezone, quiet hours, optional all-clear. For the hourly Pocket workflow, successful no-new-meeting runs must produce no output or notification; do not apply an inbox all-clear preference to Pocket.
 - Cloud controller: actual task ID, requested cadence/timezone, verified runtime/status, optional stop date, last verification.
 - Operating scope reference: permitted action/rule IDs and approval evidence held in runtime; no automatic activation from settings alone.
 - Pending decisions: stable question ID, affected workflow/rules, date first raised, status, and resolution reference.

@@ -1,6 +1,6 @@
 # Email Assistant — GitHub delivery
 
-Release 0.3.2 · October 6, 2026 · Unchained
+Release 0.5.0 · October 6, 2026 · Unchained
 
 For approximately 15 users with individual ChatGPT Pro subscriptions. GitHub is the selected distribution route; the repository is public and users need no collaborator invitations. No shared ChatGPT workspace or custom MCP server is assumed.
 

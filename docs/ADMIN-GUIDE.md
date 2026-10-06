@@ -1,6 +1,6 @@
 # GitHub distribution and updates
 
-Email Assistant 0.3.2 · Approximately 15 individual ChatGPT Pro users
+Email Assistant 0.5.0 · Approximately 15 individual ChatGPT Pro users
 
 GitHub is the selected distribution route. No custom MCP server is needed for this route. The public repository is [shay-owensby/tlc-email-assistant](https://github.com/shay-owensby/tlc-email-assistant), using branch `main`. The instructions below describe direct Codex/desktop marketplace installation; cloud scheduled access remains a separate pilot requirement.
 
@@ -23,7 +23,7 @@ Keep credentials, mailbox content, saved personal rules, completed rollout track
 
 Users can retrieve this public repository without collaborator invitations or private repository authentication. Do not grant repository write access merely for installation. Their ChatGPT and connected-app sign-ins remain separate.
 
-Release source: `shay-owensby/tlc-email-assistant`, branch `main`, version 0.3.2. The deployment owner should provide the client support contact separately. Publish only tested changes to `main`. Users follow that branch when they refresh their marketplace.
+Release source: `shay-owensby/tlc-email-assistant`, branch `main`, version 0.5.0. The deployment owner should provide the client support contact separately. Publish only tested changes to `main`. Users follow that branch when they refresh their marketplace.
 
 ## Pilot installation
 

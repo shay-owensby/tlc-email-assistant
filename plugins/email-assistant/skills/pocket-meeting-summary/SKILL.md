@@ -27,6 +27,10 @@ Maintain one compact record per recording in the scoped Pocket Meeting Index Pag
 
 ## Follow-up
 
-After a reliable report is saved and verified, read [handoff requirements](references/follow-up-handoff.md) and apply [pocket-meeting-follow-up](../pocket-meeting-follow-up/SKILL.md) in the same task unless the user requested only the report or excluded email. Reuse a compact factual handoff: identity/date, confirmed attendance/address evidence, decisions, actions, commitments, questions, Page IDs/links and limitations. The follow-up should not reload the transcript or a report already represented adequately in context. Missing follow-up capability leaves the report deliverable with an explicit draft limitation.
+When a controller explicitly owns the context/follow-up/Wrike stages, return the verified report and compact evidence to it and defer those automatic handoffs; the controller invokes each stage exactly once. Otherwise, after a reliable report is saved and verified, read [handoff requirements](references/follow-up-handoff.md) and apply [pocket-meeting-follow-up](../pocket-meeting-follow-up/SKILL.md) in the same task unless the user requested only the report or excluded email. Reuse a compact factual handoff: identity/date, confirmed attendance/address evidence, decisions, actions, commitments, questions, Page IDs/links and limitations. The follow-up should not reload the transcript or a report already represented adequately in context. Missing follow-up capability leaves the report deliverable with an explicit draft limitation.
 
-Return concise report/index links, the email draft when included, and material limitations. This workflow does not send email, create mailbox drafts, or change Pocket records.
+## Assigned-task handoff
+
+When the user requested Wrike capture or has an active standing instruction for this report scope, pass the verified report reference and assignment evidence to [pocket-summary-to-wrike](../pocket-summary-to-wrike/SKILL.md). The manager owns this stage in controller runs; return the handoff to it instead of invoking capture twice. Standalone authorized requests run it in the same task. A report-only request or missing capture authorization leaves Wrike unchanged. Track capture separately from the report/index and email follow-up so one failed stage does not replay the others.
+
+Return concise report/index links, the email draft when included, task-capture results when authorized, and material limitations. This workflow does not send email, create mailbox drafts, or change Pocket records.

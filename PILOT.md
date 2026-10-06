@@ -4,7 +4,7 @@ Run in the two target individual ChatGPT Pro cloud environments with an explicit
 
 | Check | Acceptance evidence | Status |
 | --- | --- | --- |
-| Individual-account installation | All five skills appear from the intended plugin version in a fresh cloud chat; every bundled reference is readable. | Pending |
+| Individual-account installation | All eight skills appear from the intended plugin version in a fresh cloud chat; every bundled reference is readable. | Pending |
 | Personal rule change | A precise user change updates only the intended rule, survives a fresh cloud chat, and does not edit shared plugin files. | Pending |
 | User isolation | Two different user profiles retain distinct preferences; a shared mailbox has one authorized policy owner/controller. | Pending |
 | Combined controller | Inbox and meeting workflows return one digest, honor individual pauses, and never create duplicate worker schedules. | Pending |
@@ -20,6 +20,11 @@ Run in the two target individual ChatGPT Pro cloud environments with an explicit
 | Cloud runtime | Recorded task runtime is cloud and a scheduled run succeeds with the local computer disconnected; all resources remain accessible. | Pending |
 | Pause and overlap | Revocation stops future writes; overlapping runs do not duplicate work. | Pending |
 | Meeting report | Complete transcript, correct attendees/date, report format preserved, report/index verified in Spaces, repeat recording deduplicated. | Pending |
+| Meeting task capture | Clear user assignments and accepted commitments create verified Wrike tasks; unassigned/other-owner items are skipped; missing deadlines stay unset; ambiguous identities/destinations stay pending. | Pending |
+| Capture replay and revisions | Repeated obligations and revised reports reuse tasks; completed matches are not reopened; failed readback/unknown creates reconcile before retry; capture resumes independently of report/follow-up status. | Pending |
+| Capture coverage and isolation | Every report in the authorized scope is read; truncation retains continuation; local-only sources block cloud capture; disabled/paused users make no Wrike writes. | Pending |
+| Hourly Pocket sequence | Each new recording produces one verified report, context update or supported skip, one follow-up, and deduplicated assigned Wrike tasks; retry resumes only unfinished stages. | Pending |
+| Hourly Pocket silence | A complete successful check with no new recordings produces no visible response or notification; failed retrieval is reported once, never counted as an empty success. | Pending |
 | Meeting follow-up | Correct attendee audience, supported commitments only, review-only draft, no send. | Pending |
 
 Record run IDs, profile/version, relevant Page/draft references, observed result, and any failure separately. Keep private evidence outside the distributable plugin. Resolve failures before broad client rollout.

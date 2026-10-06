@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pocket Summary to Wrike"
+  short_description: "Add your Pocket meeting action items to Wrike"
+  default_prompt: "Use $pocket-summary-to-wrike to read my saved Pocket meeting reports and add clear assignments to my Wrike task list, checking for existing tasks first."

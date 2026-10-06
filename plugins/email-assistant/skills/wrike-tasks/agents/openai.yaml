@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wrike Tasks"
+  short_description: "Add assigned and requested tasks to your Wrike list"
+  default_prompt: "Use $wrike-tasks to add the action items assigned to me in this source to my Wrike task list, checking for existing tasks first."
