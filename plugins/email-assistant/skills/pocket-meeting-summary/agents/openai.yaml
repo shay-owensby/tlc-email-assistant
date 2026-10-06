@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pocket Meeting Summary"
+  short_description: "Executive reports from Pocket AI meeting transcripts"
+  default_prompt: "Use $pocket-meeting-summary to create an executive report for my most recent Pocket AI meeting, save it in ChatGPT Spaces, and draft the attendee follow-up."

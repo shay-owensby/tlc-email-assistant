@@ -1,0 +1,40 @@
+{
+  "name": "email-assistant",
+  "version": "0.3.2",
+  "description": "Personalized daily email and meeting assistance with an orchestrator, user-owned rules in Spaces, and cloud scheduling.",
+  "author": {
+    "name": "Unchained"
+  },
+  "keywords": [
+    "email",
+    "outlook",
+    "triage",
+    "productivity"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Email Assistant",
+    "shortDescription": "Your daily email assistant",
+    "longDescription": "Five skills coordinate daily inbox work, personalized rule changes, authorized triage, Pocket AI meeting reports, and attendee follow-up drafts. User-owned settings, rules, reports, and runtime state live in ChatGPT Spaces. The orchestrator manages one authorized cloud controller per mailbox scope. Connected apps and a verified cloud pilot are required. Never sends email.",
+    "developerName": "Unchained",
+    "category": "Productivity",
+    "capabilities": [
+      "Manage personal rules",
+      "Coordinate daily workflows",
+      "Review email",
+      "Save reply drafts",
+      "Categorize email",
+      "Archive approved messages",
+      "Summarize meetings",
+      "Draft meeting follow-ups"
+    ],
+    "defaultPrompt": [
+      "Help me set up and manage my daily email assistant.",
+      "Update my inbox rules and show what will change.",
+      "Show drafts, follow-ups, and meeting outcomes that need my attention."
+    ],
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg"
+  },
+  "repository": "https://github.com/shay-owensby/tlc-email-assistant"
+}

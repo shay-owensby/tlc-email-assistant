@@ -1,0 +1,12 @@
+<!-- Code paths are relative to the skill root unless explicitly client-root-relative. Markdown links are relative to this file. -->
+
+## Retrieve the meeting from Pocket AI
+
+- Discover available Pocket AI MCP tools and inspect their current schemas. Use Pocket AI as the source for the transcript and meeting metadata: date, title, and attendees.
+- If no meeting is specified, call `search_pocket_conversations` without `query`. Its recency mode returns full transcripts newest-first. Select the most recent meeting by recording date, not upload or modification date.
+- For a specified meeting, use its title, date, or ID to locate it. Query-mode results are section-level search hits, not a complete transcript. Retrieve the matching full transcript through recency mode with date filters and pagination, or `get_org_recording` with `include_transcript: true` when appropriate and available. For recency pagination, follow `data.meta.hasMore` and pass `data.meta.nextRecordingDateBeforeExclusive` as `recordingDateBeforeExclusive` with the same filters. Use organization tools when the request concerns an organization recording.
+- Verify the selected recording matches the request. If several candidates remain genuinely ambiguous, ask the user to select one. Do not silently substitute the latest meeting for a specified meeting that cannot be found.
+- Retrieve the entire available transcript before drafting. Generated summaries may help navigation but do not replace the transcript. If the transcript is missing, incomplete, or inaccessible, report the limitation and stop without saving an executive report or index entry.
+- If Pocket AI is unavailable, including authentication or connection failure that prevents retrieval, stop and explicitly say Pocket AI is unavailable. Do not guess, use memory, or substitute another source.
+- Preserve the recording ID and source link when provided. Report missing title or attendee metadata as `Not provided`; never treat the recording owner or people merely mentioned as confirmed attendees. Keep unidentified speaker labels as supplied.
+- Use the meeting date and timezone supplied by Pocket AI. If only a timestamp is available, use its explicit timezone, or the current client project's known timezone when none is supplied, and disclose that choice. If the meeting date cannot be established, ask for it before saving; never use today's date as a substitute.

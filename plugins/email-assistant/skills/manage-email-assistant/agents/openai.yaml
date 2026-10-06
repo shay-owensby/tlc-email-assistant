@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage Email Assistant"
+  short_description: "Coordinate daily work and customize your assistant"
+  default_prompt: "Use $manage-email-assistant to manage my daily inbox and meeting workflow, update my personal rules, and show what needs my attention. Use my saved settings and cloud scheduling only."

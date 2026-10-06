@@ -1,0 +1,4 @@
+interface:
+  display_name: "Setup Email"
+  short_description: "Clarify email rules and save an approved Spaces profile"
+  default_prompt: "Use $setup-email to analyze my email habits, ask clarifying questions, incorporate my answers, and save the profile in ChatGPT Spaces after I approve it, without changing my mailbox."

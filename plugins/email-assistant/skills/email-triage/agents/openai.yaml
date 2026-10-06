@@ -1,0 +1,4 @@
+interface:
+  display_name: "Email Triage"
+  short_description: "Draft, categorize, and archive using approved inbox rules"
+  default_prompt: "Use $email-triage with my approved Inbox Triage Profile in ChatGPT Spaces. Review the operating permissions and schedule with me, then maintain my inbox within the authorized rules. Save replies as drafts and never send them."

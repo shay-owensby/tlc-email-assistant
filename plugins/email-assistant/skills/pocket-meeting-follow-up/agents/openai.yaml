@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pocket Meeting Follow-Up"
+  short_description: "Concise attendee follow-up emails in your voice"
+  default_prompt: "Use $pocket-meeting-follow-up to draft an attendee follow-up email in my writing style from the pocket-meeting-summary summary."
