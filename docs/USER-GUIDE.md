@@ -26,7 +26,7 @@ Answer the questions and correct anything that looks wrong. When ready, say: “
 
 > Show me how you would organize a small sample of my inbox and which replies you would draft. Do not change anything yet.
 
-Review the preview, then say which actions it may take. Saved email drafts appear in Outlook Drafts. Meeting follow-ups appear in chat unless you ask to save them as drafts.
+Review the preview, then say which actions it may take. Saved email drafts appear in Outlook Drafts. Meeting follow-ups are saved in your connected Outlook Drafts folder for review. They are never sent automatically.
 
 ## 5  Schedule your inbox checks in ChatGPT Work
 
@@ -48,19 +48,11 @@ If cloud access or scheduling is unavailable, leave the task inactive. Follow an
 
 ## 6  Schedule hourly Pocket meetings
 
-Use the TLC Email Assistant copies of the Productivity summary, context, and follow-up workflows so reports are saved in ChatGPT Spaces, plus pocket-summary-to-wrike. First paste this into ChatGPT Work:
+Select Scheduled, then New task, or update your existing Pocket task. Name it TLC Pocket Meetings and paste these instructions:
 
-> Update TLC Email Assistant from https://github.com/shay-owensby/tlc-email-assistant and verify that version 0.5.0 or later is installed and enabled. Check that the bundled $pocket-meeting-summary, $pocket-meeting-context, $pocket-meeting-follow-up, and $pocket-summary-to-wrike skills are accessible in ChatGPT Work with cloud execution. Confirm my connected Pocket AI account, which meetings to include, my timezone, where my private reports and meeting index will be saved in ChatGPT Spaces, and the existing Wrike space, folder, or project for tasks assigned to me. Start with new meetings after setup; ask before including older meetings. Save these choices and the existing-recording baseline in my private Email Assistant settings and runtime state. Check for an existing Pocket schedule so I do not create a duplicate. Show me one preview and any missing connections before I create the hourly task. Do not create Wrike tasks, send email, or activate a schedule during this setup.
+> Every hour, check my connected Pocket AI account for new meetings using TLC Email Assistant’s hourly Pocket workflow. For each new meeting, run $pocket-meeting-summary, $pocket-meeting-context, $pocket-meeting-follow-up, and $pocket-summary-to-wrike once. I authorize saving reports in ChatGPT Spaces, saving follow-up drafts in my connected Outlook mailbox, and adding tasks clearly assigned to me to my Wrike task list. Ask once if a required account or destination is unclear. Save progress, avoid duplicates, and leave unclear items for review. Never send email.
 
-Complete the preview and connection steps. Retain the returned settings and runtime Page links. Reuse an existing Pocket schedule if one already processes these meetings. Otherwise open Scheduled, select New task, and name it TLC Pocket Meetings. Paste these instructions and append those Page links:
-
-> Every hour, use my saved Email Assistant settings and runtime state to check my connected Pocket AI account for new meetings in the agreed scope. Use the bundled TLC Email Assistant versions of $pocket-meeting-summary, $pocket-meeting-context, $pocket-meeting-follow-up, and $pocket-summary-to-wrike, following the manager’s hourly Pocket workflow.
-
-> For each new meeting, read its complete transcript and save one verified report and index entry in ChatGPT Spaces. Add supported context from relevant earlier meetings, then prepare one attendee follow-up draft. Defer the summary skill’s automatic follow-up and Wrike handoffs so each stage runs only once. Use $pocket-summary-to-wrike and its bundled $wrike-tasks skill to add only tasks clearly assigned to me or commitments I clearly accepted, using my saved Wrike destination. I authorize those report, context, follow-up-text, and task-capture actions. Check for existing tasks and verify every saved task. Never send email or create mailbox drafts.
-
-> Save progress separately for each stage and resume unfinished work without duplicating completed actions. Keep ambiguous assignments or deadlines for review. Do not silently include historical meetings outside my approved scope.
-
-> After a successful complete check with no new meeting, return nothing: no message, notification, acknowledgment, or “no new meetings” update. Preserve any recovery results silently. When a new meeting is processed, return the report link, follow-up draft, and verified Wrike task links. If access fails, retrieval is incomplete, or a decision is needed, report that issue once; do not claim there were no new meetings or repeat an unchanged alert. Run in the cloud only.
+> If a complete check finds no new meeting, return nothing and send no notification. Otherwise return the report, saved Outlook draft link, and verified task links. Report access failures once. Run in the cloud only.
 
 | Setting | Value |
 | --- | --- |
@@ -71,7 +63,7 @@ Complete the preview and connection steps. Retain the returned settings and runt
 | Model | GPT-6.1 Sol |
 | Effort | Medium |
 
-Select Create. Verify the saved hourly schedule, the first new-meeting result, and silence after a successful check without a new meeting. No email is sent automatically.
+Select Create. Verify the hourly schedule and review follow-ups in Outlook Drafts. They remain unsent.
 
 ## Make it yours
 

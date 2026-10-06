@@ -14,7 +14,7 @@ Start with [the delivery guide](docs/START-HERE.md), then use the [deployment gu
 | setup-email | Analyze email habits, clarify preferences, obtain approval, and save an Inbox Triage Profile in ChatGPT Spaces. Mailbox read-only. |
 | email-triage | Use the approved profile and operating permission to save reply drafts, categorize messages, and archive matching mail. Never send. |
 | pocket-meeting-summary | Read a complete Pocket AI transcript, save an executive report and meeting index in Spaces, and hand off to the follow-up skill unless excluded. |
-| pocket-meeting-follow-up | Draft a concise attendee email using confirmed meeting facts and the user's style. Returns a draft in chat; saving it in Outlook requires a separate request. Never send. |
+| pocket-meeting-follow-up | Draft a concise attendee email using confirmed meeting facts and the user's style. Saves and verifies an unsent draft in the user’s connected Outlook mailbox under the authorized scope; returns a receipt, not the email body in chat. Never send. |
 | pocket-meeting-context | Compare a saved report with relevant past meetings in Spaces and reconcile supported open-item changes. |
 | pocket-summary-to-wrike | Read each saved Pocket report in scope and hand clear assignments/accepted commitments to wrike-tasks, preserving source evidence and capture progress. |
 | wrike-tasks | Add authorized tasks to the verified user and destination, reuse existing work, and read back every creation or update. |
@@ -33,7 +33,7 @@ These are separately installed/authorized integrations, not bundled credentials 
 
 | Capability | Required for | Setup check |
 | --- | --- | --- |
-| Outlook Email | Inbox setup and triage; optional saved meeting drafts | Confirm the correct mailbox, reads, reply draft creation/readback, categories, folder resolution, and reversible archive actions. |
+| Outlook Email | Inbox setup and triage; saved meeting follow-up drafts | Confirm the correct mailbox, reads, reply draft creation/readback, categories, folder resolution, and reversible archive actions. |
 | ChatGPT Spaces / Pages | All durable profiles, runtime state, meeting reports and index | Confirm read, search, create, guarded edit, and readback in the selected private/client destination. |
 | Pocket AI | Meeting summaries and follow-ups sourced from recordings | Confirm full transcript retrieval and recording identity under the client's account. |
 | Outlook Calendar | Optional availability and meeting context | Confirm the allowed calendars and timezone. Read-only context; no booking. |
@@ -67,7 +67,7 @@ Where a host uses a plugin-qualified skill name, select the installed skill from
 
 ## Before client rollout
 
-Use release 0.5.0 in `dist/`; older ZIPs are retained as historical artifacts. See [PILOT.md](PILOT.md). Structural validation is complete only when reported in `dist/VALIDATION.md`; live Microsoft/Pocket/Spaces behavior and cloud scheduling remain unverified until tested in the client's environment. Packaging does not activate schedules or write to mailboxes.
+Use release 0.6.0 in `dist/`; older ZIPs are retained as historical artifacts. See [PILOT.md](PILOT.md). Structural validation is complete only when reported in `dist/VALIDATION.md`; live Microsoft/Pocket/Spaces behavior and cloud scheduling remain unverified until tested in the client's environment. Packaging does not activate schedules or write to mailboxes.
 
 ## Personalize without editing the plugin
 

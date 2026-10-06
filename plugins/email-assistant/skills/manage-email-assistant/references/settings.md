@@ -18,8 +18,8 @@ Never let a second copy of an active rule silently disagree with the profile. If
 - Owner/user and workspace/tenant; mailbox/provider; shared-mailbox policy owner if applicable.
 - Configuration revision and last confirmed change date.
 - Canonical profile/runtime/index Page IDs and links.
-- Enabled workflows: inbox triage, due follow-up review, Pocket reports, optional historical meeting context, meeting follow-up text, optional authorized Outlook meeting drafts, optional authorized Pocket-to-Wrike task capture (disabled until explicitly enabled).
-- Pocket scope: account/folders, initial date cutoff, attendee/audience handling, report/index destination.
+- Enabled workflows: inbox triage, due follow-up review, Pocket reports, optional historical meeting context, authorized Outlook meeting follow-up drafts, optional authorized Pocket-to-Wrike task capture (disabled until explicitly enabled).
+- Pocket scope: account/folders, initial date cutoff, attendee/audience handling, report/index destination, verified Outlook sender mailbox and draft-save authorization. Meeting follow-ups are saved to that mailbox’s Drafts folder, with references and verification status in runtime; never treat an old chat-only preference as draft-save permission.
 - Wrike capture: connected account and canonical user ID, verified writable parent ID/type/name, source report/index references, initial backlog and per-run limits, authorization and runtime ledger reference. Keep this separate from read-only Wrike context permissions.
 - Digest: delivery in the cloud task, preferred length, notification conditions, daily time/timezone, quiet hours, optional all-clear. For the hourly Pocket workflow, successful no-new-meeting runs must produce no output or notification; do not apply an inbox all-clear preference to Pocket.
 - Cloud controller: actual task ID, requested cadence/timezone, verified runtime/status, optional stop date, last verification.

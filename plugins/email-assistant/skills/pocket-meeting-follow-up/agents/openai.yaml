@@ -1,4 +1,4 @@
 interface:
   display_name: "Pocket Meeting Follow-Up"
-  short_description: "Concise attendee follow-up emails in your voice"
-  default_prompt: "Use $pocket-meeting-follow-up to draft an attendee follow-up email in my writing style from the pocket-meeting-summary summary."
+  short_description: "Save attendee follow-ups in your Outlook Drafts"
+  default_prompt: "Use $pocket-meeting-follow-up to save an unsent attendee follow-up in my connected Outlook mailbox from the pocket-meeting-summary report, using my writing style."

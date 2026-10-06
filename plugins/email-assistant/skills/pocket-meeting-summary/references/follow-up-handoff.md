@@ -9,4 +9,4 @@ After a report is saved and verified, apply [pocket-meeting-follow-up](../../poc
 
 An index failure does not block a draft from a verified saved report; disclose it separately. Failed retrieval/verification without a reliable report cannot support a speculative handoff. If the follow-up skill is missing, deliver the report and explain the draft limitation.
 
-Return report/index links with the draft and material limitations. Do not claim a failed index was saved. No authorization to send email, create mailbox drafts or change Pocket records is implied.
+Include the verified Outlook sender mailbox, draft-save authorization and any known recording-to-draft receipt in the handoff. The follow-up skill saves and verifies one unsent mailbox draft; if authorization or access is missing, leave that stage pending. Return report/index links with the saved-draft receipt and material limitations, not the email body in chat. Do not claim a failed index or unverified draft was saved. No authorization to send email or change Pocket records is implied.

@@ -1,6 +1,6 @@
 {
   "name": "email-assistant",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Personalized daily email and meeting assistance with an orchestrator, user-owned rules in Spaces, and cloud scheduling.",
   "author": {
     "name": "Unchained"
@@ -15,7 +15,7 @@
   "interface": {
     "displayName": "Email Assistant",
     "shortDescription": "Your daily email assistant",
-    "longDescription": "Eight skills coordinate daily inbox work, personalized rule changes, authorized triage, Pocket AI meeting reports and historical context, attendee follow-up drafts, and authorized capture of assigned meeting tasks in Wrike. User-owned settings, rules, reports, and runtime state live in ChatGPT Spaces. The orchestrator manages one authorized cloud controller per mailbox scope. Connected apps and a verified cloud pilot are required. Never sends email.",
+    "longDescription": "Eight skills coordinate daily inbox work, personalized rule changes, authorized triage, Pocket AI meeting reports and historical context, attendee follow-up drafts saved in Outlook, and authorized capture of assigned meeting tasks in Wrike. User-owned settings, rules, reports, and runtime state live in ChatGPT Spaces. The orchestrator manages one authorized cloud controller per mailbox scope. Connected apps and a verified cloud pilot are required. Never sends email.",
     "developerName": "Unchained",
     "category": "Productivity",
     "capabilities": [

@@ -1,5 +1,12 @@
 # Release notes
 
+## 0.6.0 — October 6, 2026
+
+- Saves authorized Pocket attendee follow-ups as unsent drafts in the user’s connected Outlook mailbox, returning draft links/receipts instead of email bodies in chat.
+- Verifies sender, recipients, draft status and content; preserves human edits, reuses existing drafts, and reconciles unknown saves before retry.
+- Updates the hourly schedule prompt to authorize mailbox draft saves while preserving silence on successful no-new-meeting checks.
+- Keeps missing access/recipient details pending and never sends email. Existing chat-only scopes are not widened by installing the update. Live mailbox delivery remains pending client pilot verification.
+
 ## 0.5.0 — October 6, 2026
 
 - Adds a Spaces-based pocket-meeting-context skill adapted from Productivity and an hourly cloud workflow with separate summary, context, follow-up and Wrike stages.
