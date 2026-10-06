@@ -1,11 +1,11 @@
 ---
 name: manage-email-assistant
-description: Coordinate the Email Assistant's daily inbox and Pocket meeting workflows, personalize saved rules, show status, and manage cloud activation or pause/resume. Use for ongoing assistant management and cross-workflow requests; use the bundled specialist skills for their individual jobs.
+description: Coordinate inbox and Pocket meeting workflows, requested connected-app actions, Wrike completion checks, personal rules, status, and cloud activation or pause/resume. Use for ongoing assistant management and cross-workflow requests; use the bundled specialists for individual jobs.
 ---
 
 # Manage Email Assistant
 
-Be the user's single point of contact for their Email Assistant. Coordinate the seven bundled specialist skills and keep personal configuration in ChatGPT Spaces. This skill supplies the orchestration instructions for a cloud scheduled task; installing it does not create an autonomous process or activate a schedule.
+Be the user's single point of contact for their Email Assistant. Coordinate the nine bundled specialist skills and keep personal configuration in ChatGPT Spaces. This skill supplies the orchestration instructions for a cloud scheduled task; installing it does not create an autonomous process or activate a schedule.
 
 ## Personalization model
 
@@ -21,7 +21,7 @@ For shared mailboxes, separate personal display/digest preferences from mailbox-
 
 | User intent | Workflow |
 | --- | --- |
-| Set up the assistant or first inbox profile | Run setup-email; collect only additional meeting, digest, and cloud scheduling preferences needed for the requested workflows. |
+| Set up the assistant or first inbox profile | Run setup-email; collect only additional meeting, Wrike completion, digest, and cloud scheduling preferences needed for the requested workflows. |
 | Add/change/remove a rule, VIP, source, style, or follow-up preference | Apply the focused change process in [references/rule-changes.md](references/rule-changes.md). |
 | Review/maintain inbox, prepare replies, categorize, or archive | Run [email-triage](../email-triage/SKILL.md) under the active operating scope. |
 | Summarize a meeting | Run [pocket-meeting-summary](../pocket-meeting-summary/SKILL.md), which handles the follow-up handoff unless excluded. |
@@ -30,6 +30,8 @@ For shared mailboxes, separate personal display/digest preferences from mailbox-
 | Draft a follow-up from an existing meeting report | Run [pocket-meeting-follow-up](../pocket-meeting-follow-up/SKILL.md) with the existing report/handoff. |
 | Add assigned work from saved Pocket summaries to Wrike | Run [pocket-summary-to-wrike](../pocket-summary-to-wrike/SKILL.md), which delegates capture to [wrike-tasks](../wrike-tasks/SKILL.md). Require the report scope and task-capture authorization. |
 | Add another explicitly requested task to Wrike | Run [wrike-tasks](../wrike-tasks/SKILL.md). |
+| Send an email, unsubscribe, archive specified mail, change a calendar event, post to Teams, or create/edit a SharePoint document | Run [requested-actions](../requested-actions/SKILL.md) for the direct request; resolve live write support and missing details. |
+| Keep Wrike completion aligned with the user's sent updates | Run [sync-wrike-completion](../sync-wrike-completion/SKILL.md) on sent Outlook mail and selected Teams conversations within its separately authorized scope. |
 | Status, explain a decision, preview | Read current settings, profile, runtime receipts, and scheduler state. Do not mutate mail. |
 | Start, pause, resume, or change schedule | Follow cloud controller management below. |
 
@@ -41,7 +43,7 @@ Distinguish one-time directions from ongoing rules. “Draft this reply” is a 
 
 Support plain-language changes to sender/subject rules, VIPs, permitted draft/category/archive actions, exceptions, reply style, signature, allowed context sources, follow-up thresholds, meeting scope, report destination, digest detail, notifications, cadence, timezone, and quiet hours. Record exact scope rather than translating a narrow instruction into a broad domain rule.
 
-A preference cannot add a missing connector capability or override the plugin's no-send boundary. Requests to send email, post to Teams, book meetings, or edit SharePoint content remain outside these workflows. Wrike is read-only context during email triage; only a separately authorized task-capture request or standing scope invokes pocket-summary-to-wrike or wrike-tasks for writes. Resolve the user and writable destination before activation. An upgrade must not enable capture for existing users. Do not promise additional actions by saving a free-text rule.
+A preference cannot add a missing connector capability. Email sending, unsubscribe, calendar writes, Teams posts and SharePoint writes are supported through requested-actions only after a direct user request for each action or specified batch; do not turn them into standing automatic rules. Reuse clear requests without another permission prompt. Scheduled triage and Pocket runs remain draft-only. Direct archive requests need no full setup; future archive rules use the approved triage scope. Wrike is read-only context during email triage; task capture and completion checks are separate authorized workflows. Completion checks may run automatically after the user enables them for sent Outlook mail, selected Teams conversations and a verified Wrike task scope. Resolve identities and destinations first. Upgrades must not enable either workflow or broaden existing permissions.
 
 ## Daily or recurring controller run
 
@@ -52,8 +54,9 @@ A preference cannot add a missing connector capability or override the plugin's 
 5. If meeting monitoring is authorized, discover new recordings in the approved Pocket account/folder/date scope. Page through that scope and compare recording IDs with the cloud meeting index. Process unhandled recordings through pocket-meeting-summary. Also resume pending index/follow-up stages from runtime state even when the report is already indexed; reuse that saved report rather than regenerating it. Reuse the summary skill's follow-up output; do not run the follow-up skill twice. When historical context is enabled, defer the summary’s automatic follow-up until pocket-meeting-context completes or is safely skipped, then produce the follow-up once. Track report/index/context/follow-up outcomes separately so a partial failure does not recreate a completed report.
 6. Meeting follow-ups are saved as unsent drafts in the user’s connected Outlook mailbox under the authorized draft scope. The pocket-meeting-follow-up skill owns mailbox resolution, draft lookup/save/readback, human-edit preservation and unknown-outcome recovery; do not perform a second save in the controller. Keep a recording-to-draft reference and verification status in runtime. Return the saved draft link or subject, not the email body in chat. Missing mailbox access or authorization leaves only that stage pending; upgrades do not broaden an existing chat-only scope. Never send.
 7. If Pocket task capture is independently authorized, run pocket-summary-to-wrike on every new/revised saved report in the approved report scope and pending capture retries, including reports already indexed or generated by the Productivity skill. Track capture separately so a completed summary or failed email follow-up cannot hide uncaptured assignments. Reuse an existing same-run capture receipt rather than invoking it twice. Report collection access must be available in the cloud; local report paths are not a scheduled fallback. This stage does not require new-recording summary monitoring to be enabled.
-8. Persist each workflow's verified checkpoint and pending work. A failure in Pocket must not hide a successful inbox run; continue independent authorized work where safe. Do not advance past a retrieval gap or count partial work as complete.
-9. Return one combined update according to the notification settings: urgent items, drafts ready for review, due follow-ups, new meeting reports, verified Wrike task links and pending assignments, verified category/archive counts, and decisions or failures needing attention. Link to usable sources without copying sensitive content. Avoid separate specialist notifications for the same outcome. Stay quiet on unchanged/non-actionable runs unless the user requested a daily all-clear.
+8. If completion checks are independently enabled, run sync-wrike-completion at the existing inbox/combined controller cadence on authorized sent mail and selected Teams conversations, even when no new inbox message or Pocket recording exists. Keep source checkpoints and completion receipts separate from capture. Do not infer that task creation or read-only context permission enables completion. A separate Pocket-only schedule must not duplicate this stage or lose its silent-empty-run behavior.
+9. Persist each workflow's verified checkpoint and pending work. A failure in Pocket must not hide a successful inbox run; continue independent authorized work where safe. Do not advance past a retrieval gap or count partial work as complete.
+10. Return one combined update according to the notification settings: urgent items, drafts ready for review, due follow-ups, new meeting reports, verified Wrike task links and completed-task results, pending assignments, verified category/archive counts, and decisions or failures needing attention. Link to usable sources without copying sensitive content. Avoid separate specialist notifications for the same outcome. Stay quiet on unchanged/non-actionable runs unless the user requested a daily all-clear.
 
 If a scheduled run needs input, record the question in the pending-decisions section, notify once, and skip only the dependent action. Do not wait indefinitely, invent an answer, or repeatedly ask the same unchanged question. Process user answers through the focused change workflow on the next interactive turn.
 

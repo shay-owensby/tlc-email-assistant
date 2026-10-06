@@ -13,6 +13,7 @@ EXPECTED_SKILLS = {
     'manage-email-assistant', 'setup-email', 'email-triage',
     'pocket-meeting-summary', 'pocket-meeting-follow-up',
     'pocket-summary-to-wrike', 'wrike-tasks', 'pocket-meeting-context',
+    'requested-actions', 'sync-wrike-completion',
 }
 
 

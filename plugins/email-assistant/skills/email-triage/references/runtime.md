@@ -1,10 +1,10 @@
 # Runtime state and recovery
 
-Use this contract for mutating runs and recurring activation. The approved profile contains preferences; the runtime record contains operating authorization and execution history. Keep them separate so routine logging cannot change approved rules.
+Use this contract for mutating runs and recurring activation. The approved inbox profile contains inbox preferences; the runtime record contains operating authorization and execution history. Keep them separate so routine logging cannot change approved rules. Other workflows reuse coordination and recovery with their own authorized action/source/task scope. They do not require an Inbox Triage Profile unless they also execute profile-based inbox triage; mark inapplicable profile fields accordingly rather than inventing a profile or blocking independent work.
 
 ## Capability checks
 
-Inspect the current tool schemas rather than assuming provider parity. Require the operations needed for the authorized actions: account identification, paginated inbox/thread and sent-mail reads, draft discovery/creation/readback, label/category inventory and changes, archive destination/movement, and durable state reads/writes. Only require draft update support if updating a verified assistant draft is needed.
+Inspect the current tool schemas rather than assuming provider parity. Require only operations needed for the authorized action. Inbox triage may need account identification, paginated inbox/thread and sent-mail reads, draft discovery/creation/readback, label/category inventory and changes, archive destination/movement, and durable state reads/writes. A specified-message archive does not require drafting or categorization tools; a Wrike completion run requires its source/task/status tools, not mailbox mutation tools. Only require draft update support if updating a verified assistant draft is needed. Recurring writes always require durable state and safe coordination.
 
 If a capability is missing, continue independent supported work within scope and report the affected action as unavailable. Do not simulate a mailbox draft in a Page and call it delivered, treat a category as a folder move, or call a send operation to make a reply draft. Never guess an API's side effects or bypass tool approval requirements. An interactive approval requirement can make that action unsuitable for unattended execution; report it rather than assuming the schedule will bypass it.
 
@@ -49,7 +49,7 @@ Recheck due follow-ups against latest inbound, sent mail, and drafts before acti
 - Definite rejection with no commit: keep the action pending, correct only a supported cause, and retry within the connector's guidance and current run limits.
 - Timeout or unknown commit: read the mailbox and draft list before any retry. If the action is already present, verify and record it; if the outcome remains uncertain, keep it unknown and request attention. Do not blindly repeat a draft creation or folder move.
 - Partial batch success: retain verified successes and retry only the rejected/unfinished items. Keep counts separate.
-- Authorization/account mismatch, inaccessible profile, uncertain profile approval, or changed execution scope: stop dependent writes and surface the issue. Other unrelated mailbox accounts are not substitutes.
+- Authorization/account mismatch, changed execution scope, or an inaccessible/unapproved profile when that workflow requires one: stop dependent writes and surface the issue. For non-profile workflows, check their own explicit operating scope. Other unrelated mailbox accounts are not substitutes.
 - User changes during execution: preserve the user's current state. Do not overwrite a human draft or automatically reverse a manual unarchive/category change. Record it for clarification when the ongoing rule needs adjustment.
 
 When the user requests reversal, use the recorded before-state and current mailbox state to restore only assistant changes within that request, preserving subsequent human changes. Do not perform a broad automatic rollback after a partial failure; reconcile first.

@@ -1,6 +1,6 @@
 # Email Assistant Quick Start
 
-Your assistant helps organize email, prepare replies, and summarize Pocket AI meetings using rules you approve. You review and send every email yourself.
+Your assistant helps organize email, prepare replies, and summarize Pocket AI meetings using rules you approve. Emails stay in Outlook Drafts unless you explicitly ask the assistant to send one.
 
 ## 1  Open Codex and install
 
@@ -64,6 +64,16 @@ Select Scheduled, then New task, or update your existing Pocket task. Name it TL
 | Effort | Medium |
 
 Select Create. Verify the hourly schedule and review follow-ups in Outlook Drafts. They remain unsent.
+
+## Other actions and Wrike completion
+
+Ask directly: “Send this draft to the listed recipients,” “Unsubscribe me from this newsletter,” “Archive these messages,” “Schedule this meeting,” “Post this update in Teams,” or “Update this SharePoint document.” Include the intended people, destination and details. These actions depend on the connected plugin’s permissions and supported tools. Sending, unsubscribe, calendar changes, Teams posts and document changes require a direct request each time; recurring inbox and Pocket checks remain draft-only.
+
+To keep Wrike up to date, paste:
+
+> Enable $sync-wrike-completion in my existing inbox schedule. Check my sent Outlook email and the Teams chats or channels I select. Mark only clearly matched, fully completed tasks assigned to me as complete. Leave partial or unclear work for review and respect tasks I reopen. Ask me to choose the Teams sources, Wrike scope and starting point; save those settings. Keep quiet when nothing changes.
+
+This runs with your inbox checks, independently of new Pocket meetings. Selecting Teams sources does not permit posting there. No completion checks start until you enable them; existing schedules and permissions are preserved.
 
 ## Make it yours
 

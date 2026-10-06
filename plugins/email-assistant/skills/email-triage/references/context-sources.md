@@ -20,6 +20,8 @@ If current sources disagree, prefer a clearly authoritative, applicable source o
 
 Do not create or update calendar events, send Teams messages, modify Wrike tasks, edit SharePoint files, or start recordings as part of context retrieval. Those are separate workflows. Never claim an action occurred because it was discussed in a meeting or requested by email.
 
+For a direct user request to change a calendar event, post to Teams or create/edit a SharePoint document, route to [requested-actions](../../requested-actions/SKILL.md). Separately enabled [sync-wrike-completion](../../sync-wrike-completion/SKILL.md) handles clear full-task completion evidence; email-triage itself remains read-only in these apps.
+
 Calendar checks produce possible times, not reserved time slots. Recheck availability immediately before saving a scheduling-related draft, and avoid promising that the time will remain free until the user sends it.
 
 Where a plugin is missing, discover the relevant provider plugin and explain the connection needed. Installed or discoverable in the author's environment does not mean installed, authorized, or supported in the client's scheduled runtime.

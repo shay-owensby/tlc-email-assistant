@@ -7,6 +7,8 @@ description: Add action items assigned to the user, or tasks the user explicitly
 
 Capture the user's work in Wrike using the connected Wrike plugin. Support both clear assignments to the user in the requested source and manually requested tasks, even when the source has no assignment.
 
+For matching sent Outlook/Teams completion statements to existing tasks, use [sync-wrike-completion](../sync-wrike-completion/SKILL.md). Capture permission alone does not enable completion checks. Preserve completed tasks on capture replay; task status synchronization is owned by that separate workflow.
+
 ## Scope and inputs
 
 - A request to add tasks, or an established instruction to capture assigned work from a particular source, authorizes the corresponding Wrike writes. Proceed within that scope without a second confirmation.

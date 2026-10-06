@@ -1,5 +1,12 @@
 # Release notes
 
+## 0.7.0 — October 6, 2026
+
+- Adds requested-actions for direct email sends, unsubscribe, selected-message archiving, calendar changes, Teams posts and SharePoint document changes, subject to live connector support. Each external action requires a direct user request; scheduled inbox and meeting runs stay draft-only.
+- Adds sync-wrike-completion for clear full-task completion evidence in the user’s sent Outlook email and selected Teams conversations. Supports separate activation in the existing inbox controller, verified workflow status, partial-work review, source coverage, manual-reopening protection and readback.
+- Keeps user accounts, selected sources, task scopes and standing permissions separate from shared plugin defaults. No existing schedule gains new actions through upgrade.
+- Packages ten skills and adds behavioral pilot cases. Actual Microsoft write capabilities, client installation and end-to-end scheduled execution remain pending live verification.
+
 ## 0.6.0 — October 6, 2026
 
 - Saves authorized Pocket attendee follow-ups as unsent drafts in the user’s connected Outlook mailbox, returning draft links/receipts instead of email bodies in chat.

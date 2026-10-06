@@ -1,0 +1,4 @@
+interface:
+  display_name: "Requested Actions"
+  short_description: "Act on direct email, calendar, Teams, and file requests"
+  default_prompt: "Use $requested-actions to carry out my specified connected-app action and verify the result. Ask only for missing details."

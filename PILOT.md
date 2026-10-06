@@ -4,7 +4,7 @@ Run in the two target individual ChatGPT Pro cloud environments with an explicit
 
 | Check | Acceptance evidence | Status |
 | --- | --- | --- |
-| Individual-account installation | All eight skills appear from the intended plugin version in a fresh cloud chat; every bundled reference is readable. | Pending |
+| Individual-account installation | All ten skills appear from the intended plugin version in a fresh cloud chat; every bundled reference is readable. | Pending |
 | Personal rule change | A precise user change updates only the intended rule, survives a fresh cloud chat, and does not edit shared plugin files. | Pending |
 | User isolation | Two different user profiles retain distinct preferences; a shared mailbox has one authorized policy owner/controller. | Pending |
 | Combined controller | Inbox and meeting workflows return one digest, honor individual pauses, and never create duplicate worker schedules. | Pending |
@@ -47,3 +47,17 @@ Use synthetic or explicitly selected examples; results remain Pending until exec
 | Plugin updates while two users have different rules | Fresh chats and subsequent scheduled runs retain each user’s own Pages and permissions. | Pending |
 | Two users share a mailbox | One mailbox policy owner/controller; no competing mutation schedules. | Pending |
 | Cross-account delivery and update | Two unrelated Pro accounts install through the chosen route and use the new version in fresh chats and subsequent cloud runs without shared credentials or local dependencies. | Pending |
+| User requests a specific email send | Correct current message, sender, recipients and intended thread are resolved; supported native action executes once; acceptance and sent-item verification are distinguished. | Pending |
+| Send times out or only new-message sending exists | No blind retry; sent state is reconciled. An intended reply/draft is not silently converted to a new message. | Pending |
+| User asks to archive identified unwanted messages | Exact requested scope is reversibly archived without forcing full setup; read state is preserved; no delete/block/unsubscribe is inferred. | Pending |
+| User asks to unsubscribe | Actual list metadata and supported method are used once; request submission is distinguished from confirmed removal. Unsupported HTTPS flow remains pending. | Pending |
+| Direct calendar request conflicts or affects a recurrence | Conflict is resolved with user; exact calendar/timezone/occurrence scope and notification effects are verified; no duplicate invitation on retry. | Pending |
+| Direct Teams post | Exact chat/channel/thread, author and content are verified; no guessed mentions or duplicate post after timeout. | Pending |
+| SharePoint edit encounters a newer version or unsupported file type | User edits and file format survive; supported content operation is verified or the action remains pending. No sharing changes. | Pending |
+| Clear authored completion statement matches full assigned task | Correct completed status is applied and read back; unrelated fields are preserved; one receipt/notification despite repeated messages. | Pending |
+| Draft, quote, other author, ambiguous match or partial completion | No automatic completion; relevant ambiguity/remaining work is retained for review. | Pending |
+| Completion statement is followed by a correction or manual reopening | Later evidence/user state wins; older statements do not re-complete the task. | Pending |
+| User's portion of a shared task is done | Whole task stays open unless evidence covers its entire acceptance scope; no parent completion from one subtask. | Pending |
+| Custom workflow has multiple completed statuses or approval gate | Correct established status is used or the task stays pending; no guessed status or bypassed review. | Pending |
+| New Teams reply appears under an old thread; source retrieval truncates | Selected conversation/reply coverage catches supported changes; independent cursors retain gaps and no whole-source success is claimed. | Pending |
+| Upgrade arrives for a draft-only/capture-only user | No send, completion scan, expanded Teams access or new schedule activates automatically. | Pending |

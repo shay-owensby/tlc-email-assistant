@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sync Wrike Completion"
+  short_description: "Complete Wrike tasks from verified sent updates"
+  default_prompt: "Use $sync-wrike-completion to check my sent Outlook email and selected Teams conversations, complete clear full-task matches, and leave uncertain items for review."

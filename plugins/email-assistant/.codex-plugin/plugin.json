@@ -1,7 +1,7 @@
 {
   "name": "email-assistant",
-  "version": "0.6.0",
-  "description": "Personalized daily email and meeting assistance with an orchestrator, user-owned rules in Spaces, and cloud scheduling.",
+  "version": "0.7.0",
+  "description": "Personalized email and meeting assistance, requested connected-app actions, and evidence-based Wrike completion with user-owned rules and cloud scheduling.",
   "author": {
     "name": "Unchained"
   },
@@ -15,7 +15,7 @@
   "interface": {
     "displayName": "Email Assistant",
     "shortDescription": "Your daily email assistant",
-    "longDescription": "Eight skills coordinate daily inbox work, personalized rule changes, authorized triage, Pocket AI meeting reports and historical context, attendee follow-up drafts saved in Outlook, and authorized capture of assigned meeting tasks in Wrike. User-owned settings, rules, reports, and runtime state live in ChatGPT Spaces. The orchestrator manages one authorized cloud controller per mailbox scope. Connected apps and a verified cloud pilot are required. Never sends email.",
+    "longDescription": "Ten skills coordinate inbox drafts and archiving, Pocket meeting reports and Outlook follow-up drafts, Wrike task capture and completion checks, and directly requested email sends, unsubscribe, calendar, Teams and SharePoint actions. Scheduled email remains draft-only. User-owned rules and progress live in Spaces. Connected write capabilities and a verified client cloud pilot are required.",
     "developerName": "Unchained",
     "category": "Productivity",
     "capabilities": [
@@ -28,7 +28,13 @@
       "Summarize meetings",
       "Draft meeting follow-ups",
       "Capture assigned Wrike tasks",
-      "Compare meeting history"
+      "Compare meeting history",
+      "Send email on request",
+      "Unsubscribe on request",
+      "Manage calendar events on request",
+      "Post Teams messages on request",
+      "Create or edit SharePoint documents on request",
+      "Sync clear task completions"
     ],
     "defaultPrompt": [
       "Help me set up and manage my daily email assistant.",

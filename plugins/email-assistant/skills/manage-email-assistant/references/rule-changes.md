@@ -15,6 +15,7 @@ Use for additions, corrections, exclusions, removals, or a request to restore an
 - If a necessary address, exception, destination, scope, or consequence is not established, prepare the precise proposed change and ask one focused question before activation. A request for advice such as “Should we archive these?” does not approve a rule.
 - Permission to record a preference is not automatically permission to activate an unattended workflow. If the user only asks to save a rule, save it as approved preference but leave execution permission pending. If their direct instruction explicitly covers both, record both without a second approval prompt.
 - Disable or narrow a revoked action immediately; do not wait for a general profile review. Preserve the revocation even if the rest of the configuration update fails. Newly requested external actions outside the plugin's supported scope remain unsupported rather than becoming active free-text instructions.
+- Route concrete sends, unsubscribe requests, calendar changes, Teams posts and SharePoint changes to requested-actions; do not save automatic rules for them. An explicit request to enable clear-evidence Wrike completion uses sync-wrike-completion's source/task scope and the existing controller. Do not treat read-only app context or task capture as completion authorization.
 
 ## Persist and activate consistently
 

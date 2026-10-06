@@ -7,6 +7,8 @@ description: Save a concise attendee follow-up from a Pocket meeting summary as 
 
 Turn the pocket-meeting-summary handoff into one concise, ready-to-review email saved in the user's connected Outlook Drafts folder. Chat contains a brief save receipt, not the email body. Do not send or move the draft to the Inbox folder.
 
+If the user directly asks to send a specific follow-up, route that separate action to [requested-actions](../requested-actions/SKILL.md) with the current verified draft. Do not apply this draft-only boundary as a plugin-wide refusal; automatic meeting runs remain unsent.
+
 ## Authority and mailbox
 
 An explicit request to save a meeting follow-up draft or an authorized standing meeting workflow permits the corresponding draft save. Reuse that permission without asking again per meeting. A summary-only request, installation, or an upgrade does not broaden an existing chat-only scope; leave the draft stage pending when mailbox-write permission is absent. Honor explicit preview-only or report-only requests.

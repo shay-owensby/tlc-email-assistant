@@ -1,6 +1,6 @@
 # Email Assistant
 
-Eight reusable skills for inbox maintenance and Pocket AI meeting follow-up, designed for ChatGPT Work with cloud scheduling. This folder is the distributable source package and local marketplace. It is distributed through a public GitHub marketplace; it is not a public ChatGPT directory listing or an activated automation.
+Ten reusable skills for inbox maintenance, Pocket AI meetings, requested connected-app actions and Wrike completion, designed for ChatGPT Work with cloud scheduling. This folder is the distributable source package and local marketplace. It is distributed through a public GitHub marketplace; it is not a public ChatGPT directory listing or an activated automation.
 
 ## Client delivery
 
@@ -18,6 +18,8 @@ Start with [the delivery guide](docs/START-HERE.md), then use the [deployment gu
 | pocket-meeting-context | Compare a saved report with relevant past meetings in Spaces and reconcile supported open-item changes. |
 | pocket-summary-to-wrike | Read each saved Pocket report in scope and hand clear assignments/accepted commitments to wrike-tasks, preserving source evidence and capture progress. |
 | wrike-tasks | Add authorized tasks to the verified user and destination, reuse existing work, and read back every creation or update. |
+| requested-actions | Carry out direct requests to send email, unsubscribe, archive selected mail, change calendar events, post Teams messages, and create/edit SharePoint documents when supported. |
+| sync-wrike-completion | Complete clear full-task matches from the user’s sent Outlook email and selected Teams conversations within an explicitly enabled scope. |
 
 The summary, context, and follow-up Pocket skills were copied with their supporting resources from the installed Productivity plugin, version 0.1.3. Only the bundled copies were adapted for cloud storage and portable delivery; the installed Productivity plugin was not changed. The Wrike Tasks skill is bundled from the supplied standalone skill so client installations do not depend on the author’s local skill folder.
 
@@ -33,13 +35,13 @@ These are separately installed/authorized integrations, not bundled credentials 
 
 | Capability | Required for | Setup check |
 | --- | --- | --- |
-| Outlook Email | Inbox setup and triage; saved meeting follow-up drafts | Confirm the correct mailbox, reads, reply draft creation/readback, categories, folder resolution, and reversible archive actions. |
+| Outlook Email | Inbox setup and triage; saved meeting follow-up drafts | Confirm the correct mailbox, reads, reply draft creation/readback, categories, folder resolution, and reversible archive actions. For direct requests, also verify send semantics and supported unsubscribe methods. |
 | ChatGPT Spaces / Pages | All durable profiles, runtime state, meeting reports and index | Confirm read, search, create, guarded edit, and readback in the selected private/client destination. |
 | Pocket AI | Meeting summaries and follow-ups sourced from recordings | Confirm full transcript retrieval and recording identity under the client's account. |
-| Outlook Calendar | Optional availability and meeting context | Confirm the allowed calendars and timezone. Read-only context; no booking. |
-| Teams | Optional decisions and conversation context | Confirm the permitted channels/chats. No posting. |
-| Wrike | Read-only inbox context; required for optional authorized task capture | Confirm the current user, writable parent, duplicate search, creation, and readback. Task writes require their own capture scope; email triage remains read-only in Wrike. |
-| SharePoint | Optional policy/document context | Confirm the permitted sites/libraries/files and disclosure rules. No file changes. |
+| Outlook Calendar | Availability/context and directly requested event changes | Verify allowed calendars, timezone, availability, supported writes, organizer rights and invitation behavior. |
+| Teams | Context, directly requested posts, and selected completion evidence | Verify selected channels/chats, authorship, message/reply retrieval, and post/readback capabilities when requested. |
+| Wrike | Inbox context, authorized task capture and completion checks | Verify user, destinations, task details/activity, workflow statuses, writes and readback. Capture and completion need separate authorization; triage context stays read-only. |
+| SharePoint | Document context and directly requested creation/edits | Verify exact sites/libraries/files, audience, supported file types, content writes and version-safe readback. |
 | Write Like Me | Optional style assistance for meeting follow-ups | If unavailable, the existing skill uses supplied examples/preferences and a concise fallback. |
 
 Do not assume installed apps in the author's account are available to the client. Microsoft tenant policy or the ChatGPT workspace may require administrator involvement. Read access does not establish write capability or unattended approval. A user-managed connection and a team service account are different identities; do not substitute one for the other.
@@ -67,7 +69,7 @@ Where a host uses a plugin-qualified skill name, select the installed skill from
 
 ## Before client rollout
 
-Use release 0.6.0 in `dist/`; older ZIPs are retained as historical artifacts. See [PILOT.md](PILOT.md). Structural validation is complete only when reported in `dist/VALIDATION.md`; live Microsoft/Pocket/Spaces behavior and cloud scheduling remain unverified until tested in the client's environment. Packaging does not activate schedules or write to mailboxes.
+Use release 0.7.0 in `dist/`; older ZIPs are retained as historical artifacts. See [PILOT.md](PILOT.md). Structural validation is complete only when reported in `dist/VALIDATION.md`; live Microsoft/Pocket/Spaces behavior and cloud scheduling remain unverified until tested in the client's environment. Packaging does not activate schedules or write to mailboxes.
 
 ## Personalize without editing the plugin
 
@@ -81,7 +83,7 @@ Each user keeps an Email Assistant Settings Page, an approved Inbox Triage Profi
 
 Clear user instructions authorize their exact requested changes. The manager asks only for missing scope or additional permission, records the change, and reports when it takes effect. One-time requests do not become permanent rules. Direct edits to a settings Page are reconciled with operating authorization before they change automatic behavior.
 
-The shared plugin defines supported workflows; personal Pages define each user’s preferences. Upgrading the plugin preserves those Pages. Wrike task capture uses its bundled specialist workflow with separate authorization. Additional actions such as sending email or booking meetings remain outside this plugin; a personal rule cannot add missing capabilities. For shared mailboxes, establish one authorized mailbox-wide policy instead of conflicting per-user mutation controllers.
+The shared plugin defines supported workflows; personal Pages define each user’s preferences. Upgrading the plugin preserves those Pages. Wrike task capture uses its bundled specialist workflow with separate authorization. Sending, unsubscribe, calendar changes, Teams posts and SharePoint changes require a direct user request for each action or specified batch, and supported live connector operations. They cannot be enabled as standing automatic rules. Clear-evidence Wrike completion may run after separate activation for sent Outlook email and selected Teams conversations, normally at the inbox controller cadence. A personal rule cannot add missing connector capabilities. For shared mailboxes, establish one authorized mailbox-wide policy instead of conflicting per-user mutation controllers.
 
 ## Rebuild the release
 
