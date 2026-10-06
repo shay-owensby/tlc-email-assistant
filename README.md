@@ -11,7 +11,7 @@ Start with [the delivery guide](docs/START-HERE.md), then use the [deployment gu
 | Skill | Purpose |
 | --- | --- |
 | manage-email-assistant | The main entry point for daily coordination, personal rule changes, status, and cloud pause/resume. |
-| setup-email | Analyze email habits, clarify preferences, obtain approval, and save an Inbox Triage Profile in ChatGPT Spaces. Mailbox read-only. |
+| setup-email | Inventory existing folders, labels and categories; analyze 90 days of email types and filing/tagging habits; clarify preferences and save an approved profile in Spaces. Mailbox read-only. |
 | email-triage | Use the approved profile and operating permission to save reply drafts, categorize messages, and archive matching mail. Never send. |
 | pocket-meeting-summary | Read a complete Pocket AI transcript, save an executive report and meeting index in Spaces, and hand off to the follow-up skill unless excluded. |
 | pocket-meeting-follow-up | Draft a concise attendee email using confirmed meeting facts and the user's style. Saves and verifies an unsent draft in the user’s connected Outlook mailbox under the authorized scope; returns a receipt, not the email body in chat. Never send. |
@@ -69,7 +69,7 @@ Where a host uses a plugin-qualified skill name, select the installed skill from
 
 ## Before client rollout
 
-Use release 0.7.0 in `dist/`; older ZIPs are retained as historical artifacts. See [PILOT.md](PILOT.md). Structural validation is complete only when reported in `dist/VALIDATION.md`; live Microsoft/Pocket/Spaces behavior and cloud scheduling remain unverified until tested in the client's environment. Packaging does not activate schedules or write to mailboxes.
+Use release 0.7.1 in `dist/`; older ZIPs are retained as historical artifacts. See [PILOT.md](PILOT.md). Structural validation is complete only when reported in `dist/VALIDATION.md`; live Microsoft/Pocket/Spaces behavior and cloud scheduling remain unverified until tested in the client's environment. Packaging does not activate schedules or write to mailboxes.
 
 ## Personalize without editing the plugin
 

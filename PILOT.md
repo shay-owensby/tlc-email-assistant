@@ -10,6 +10,9 @@ Run in the two target individual ChatGPT Pro cloud environments with an explicit
 | Combined controller | Inbox and meeting workflows return one digest, honor individual pauses, and never create duplicate worker schedules. | Pending |
 | Correct connections | Outlook mailbox, Pocket account, Spaces destination and any optional source scopes are verified under the client's identity. | Pending |
 | Read-only setup | Profile reflects clarification answers, is saved after approval, and mailbox state is unchanged. | Pending |
+| Setup organization analysis | Before proposing rules, returns actual nested folder/label/category inventory and maps received email types to observed filing/tagging over 90 days. Urgent-message lists do not replace these findings. | Pending |
+| Sparse destinations and sample counts | Older examples clarify low-activity folders; sampling denominators and older coverage are disclosed, categories are sampled across folders, and recent inactivity does not trigger removal recommendations. | Pending |
+| Organization access gaps | Missing category fields or denied inventory access are marked unknown, not empty; available folder analysis continues and incomplete analysis is not called complete. | Pending |
 | Durable profile | A fresh cloud chat locates the account-specific approved Page and excludes pending rules. | Pending |
 | Context boundaries | Draft uses correct Calendar/Teams/Pocket/Wrike/SharePoint facts only within allowed scopes and omits internal-only material. | Pending |
 | Draft quality | Correct thread, recipients, tone, facts and signature; saved draft verified; no send. | Pending |

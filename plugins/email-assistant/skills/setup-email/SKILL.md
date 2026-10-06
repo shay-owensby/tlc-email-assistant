@@ -1,11 +1,13 @@
 ---
 name: setup-email
-description: Analyze email habits, clarify preferences, and save a user-approved Inbox Triage Profile in ChatGPT Spaces for downstream email skills. Use when establishing or revising triage preferences; never modify the mailbox during setup.
+description: Analyze 90 days of email types and how the user uses existing folders, labels and categories, then clarify preferences and save an approved Inbox Triage Profile in ChatGPT Spaces. Use for initial setup or reassessment of email organization, not an urgent-message digest; mailbox read-only.
 ---
 
 # Setup Email
 
-Establish a simple, evidence-backed email triage system from the user's actual habits. Follow this sequence: analyze email, ask clarifying questions, incorporate the answers, obtain approval, then save and verify the approved Inbox Triage Profile in ChatGPT Spaces.
+Learn the user's existing email organization before proposing rules. Inventory folders, labels and categories; analyze received email types and how they are filed or tagged over the last 90 days; show those findings; ask targeted questions; then obtain approval and save the profile in ChatGPT Spaces. Preserve the existing structure and names by default.
+
+The primary deliverable is an organization analysis and proposed reusable rules, not a list of urgent messages or a daily inbox briefing. Do not substitute action-required/waiting/reference buckets for the user's actual email types and filing system. Individual messages are supporting examples of a pattern, not the main output. Setup does not flag or otherwise change messages.
 
 Personal preferences live in the user's Spaces profile, never in shared plugin files. When `manage-email-assistant` is available, route later focused rule edits to it rather than repeating full discovery. Initial profile creation still follows the approval workflow below.
 
@@ -19,13 +21,18 @@ Personal preferences live in the user's Spaces profile, never in shared plugin f
 
 1. Identify the connected provider and exact account. If multiple accounts are plausible and the request does not identify one, ask which to analyze. Keep separate account profiles unless the user requests a combined system. If access is unavailable, report the missing access without inventing findings; use user-supplied exports if available.
 2. Locate any prior profile using the retrieval contract below and read existing user preferences. Explicit user instructions outrank inferred habits. Preserve prior approved preferences unless new evidence warrants a clearly identified proposed revision. Keep the existing approved Page unchanged while preparing a revision in chat.
-3. Start with the last 30 days, using the user's timezone. Review inbox, sent mail, and accessible archived/filed mail, along with the label/folder inventory and existing rules when readable. Include older unresolved threads when useful. Expand the window only when needed to understand sparse or recurring activity.
-4. Use metadata first: sender, recipients, dates, thread relationships, location/labels, read state, and priority flags. Read selected thread contents to understand requests, replies, commitments, and recurring message types. Sample across common and less frequent senders, message types, and locations; do not infer habits from the current inbox alone.
-5. Record the exact date range, sample size, locations covered, and retrieval limits. Paginate when needed for coverage; distinguish sampled counts from mailbox totals. Minimize quoted private content and do not copy attachments or full email bodies into the profile.
+3. **Inventory organization first.** Discover the provider's read-only folder hierarchy and label/category inventory, including visible nested folders. Retain exact names, full paths, types and returned IDs; distinguish system folders, user folders, labels and category tags. Outlook categories are separate from mail folders: inspect both. For Outlook, discover the current `list_mail_folders` and `list_categories` schemas; use the shared-mailbox equivalents when applicable. A name search or Inbox listing is not an inventory. Inspect existing filters/rules when readable and record when unavailable. Do not list contact folders as mail folders or request hidden/system internals unless asked.
+4. Follow supported pagination/traversal and inspect limits. The current Outlook folder listing has a total-return cap rather than ordinary message pagination; use its supported limits and report any unresolved truncation instead of inventing continuation arguments. Record inventory completeness independently from message sampling. A failed or unavailable lookup means unknown, not no folders/categories. Resolve independent available sources and explicitly identify what could not be reviewed.
+5. **Sample organization, not just inbox activity.** Start with the last 90 days in the user's timezone unless they specify another period. Review Inbox, Sent, Archive and user-created filing destinations across the discovered hierarchy. Include tagged and untagged mail, common and less frequent senders, and different message types. Start with a small varied sample per user folder/category and deepen mixed or high-volume groups as needed. Sample category usage across folders, not just the category-name inventory. If scale prevents coverage of all destinations, name the unsampled groups and propose a continuation rather than claiming a complete review.
+6. Use metadata first: sender, subject, dates, thread relationships, actual parent folder/path and applied labels/categories. Request missing organization fields through supported read schemas; a field omitted from a result is not an empty value. Read selected contents only when needed to understand the email type or filing rationale. Reuse returned content, deduplicate messages appearing under multiple labels, and do not fetch every full body. Sent mail supports reply/style evidence but cannot replace received and filed-mail analysis.
+7. For a folder/category with little recent activity, distinguish no messages in the 90-day sample from genuinely empty or unused. Inspect a small older sample when needed to understand its purpose, identify that older coverage separately, and do not recommend removal from recent inactivity alone. Unknown usage remains unknown.
+8. Record exact date ranges, unique messages/threads sampled, coverage by folder/category, inventory totals when actually returned, and access/retrieval limits. A bounded sample is acceptable for pattern analysis; sample proportions are not mailbox-wide counts. Keep names and useful evidence references without copying full emails or attachments into the profile.
 
 ## Interpret handling patterns
 
-Identify the user's primary categories and workflows, frequent correspondents, recurring message types, and evidence of replying, prioritizing, archiving/filing, ignoring, or leaving items for follow-up.
+Identify recurring **email types** from actual content, such as invoices, client requests, system alerts or newsletters only when supported by the sample. Map each type to the exact folders/labels/categories where it appears, including mail left in Inbox or without a tag. Show representative evidence, sample counts with their denominators, exceptions and confidence. Compare similar mail across destinations to distinguish consistent habits from mixed or unclear use. A folder name alone is not evidence of what it contains.
+
+Keep four concepts separate: email type (what it concerns), folder (where it is stored), label/category (how it is tagged), and handling state (whether action is needed). Outlook category colors, read state and flags do not establish filing intent. Explain observed organization before discussing priority, reply style or follow-ups.
 
 - Use sent replies and thread context to establish observed responses. A draft is not a sent reply. Flagging or starring is a priority signal, not proof that work was completed.
 - Distinguish observed actions from current state. A message outside the inbox does not prove that the user manually archived it; an unread or unanswered message does not prove deliberate ignoring. Existing automation may explain its location or status.
@@ -36,10 +43,10 @@ Identify the user's primary categories and workflows, frequent correspondents, r
 
 ## Recommend the taxonomy and rules
 
-Prefer a small set of categories the user can readily apply. Reuse useful existing labels/folders and familiar names; separate subject categories from handling states when that avoids multiplying folders.
+Preserve the user's existing folders, labels, categories and familiar names by default. Recommend rules that fit observed organization; do not replace it with a generic small set of categories. Suggest a new category or consolidation only when a demonstrated gap/overlap supports it, clearly separate it from the existing inventory, and ask whether the user wants that change. Separate subject categories from handling states when that avoids multiplying folders.
 
 - Review useful, overlapping/redundant, and missing categories. Describe any proposed consolidation or new category without applying it. Missing activity in a limited sample is not sufficient reason to remove a folder.
-- For each category, define inclusion criteria, exclusions, an existing or proposed destination, and its default handling recommendation. Distinguish provider system folders from user-created categories.
+- For each email-type grouping, define inclusion criteria, exclusions, the observed filing/tagging pattern and a proposed handling rule. Identify provider folders, labels and category tags separately; an analytical email type does not imply creating a provider category.
 - Give each proposed rule an ID, precise match conditions, exceptions, priority, category/handling result, and evidence/confidence. Record exact sender matching when known. If a provider cannot express a proposed rule, identify it as guidance for a downstream triage skill rather than a native filter.
 - Make executable recommendations explicit: `draft_reply`, `archive`, `apply_label`, `apply_category`, or `manual_review`, including the exact destination name and message-versus-thread scope. A category such as “no action” alone does not mean archive. Missing destinations remain proposed until their creation is separately authorized. Rules may combine actions only when their order and exceptions are clear.
 - Specify rule precedence: explicit user exceptions first; direct action requests, supported deadlines, and unresolved follow-ups before routine low-priority handling. VIP status may raise priority without implying that every message needs a reply. Do not let newsletter or sender rules hide an actionable request.
@@ -47,7 +54,7 @@ Prefer a small set of categories the user can readily apply. Reuse useful existi
 
 ## Ask, incorporate, and obtain approval
 
-1. Gather unresolved decisions that would materially change triage. Ask a short, grouped set of clarifying questions using the available user-input tool or chat. Cover relevant gaps such as VIPs, what requires a reply, follow-up timing, what must stay visible, and label preferences. Suggest evidence-backed choices while allowing the user's own rules. Do not repeat questions already answered; if no material gaps remain, proceed to review.
+1. Show the organization findings before asking preference questions: the observed folder/label/category inventory with coverage, recurring email types mapped to current filing/tagging, consistent patterns and exceptions, then proposed rules and evidence gaps. Lead questions with unresolved organization choices grounded in that evidence—for example, whether two destinations intentionally serve different purposes or whether an observed category assignment should become a rule. Do not ask the user to describe information that available inventory and message reads can establish. Include VIP/reply/follow-up questions only when relevant to the requested downstream workflow. Do not repeat answered questions; if no material gaps remain, proceed to review.
 2. Wait for the answers before finalizing dependent rules. Incorporate the user's conditions, exceptions, and timing faithfully, identify those rules as user-stated, and resolve material contradictions with a focused follow-up. Inference must not override a stated preference. If the user skips a question, leave affected rules pending or use manual review; silence does not establish a preference.
 3. Present the complete revised profile, briefly highlight how the answers changed it, and disclose the exact save destination and whether the Page will be created or updated. Ask for approval to save this version. A reply to a clarifying question is not approval of the complete profile unless the user explicitly says so.
 4. After approval, save that version without another confirmation. If the user requests changes, incorporate them and obtain approval of the revised version before saving. Increment the profile version for each revision submitted for approval. Partial approval applies only to named rules; clearly separate pending rules from the approved active set. Record the approval date, approved version, and approved/excluded rule IDs. In the saved profile, replace PROPOSED with APPROVED or PARTIALLY APPROVED, update the approved scope, and label the active rules accordingly; do not leave stale pending-approval wording on approved rules.
@@ -66,7 +73,7 @@ Setup approval still authorizes only saving the profile. `email-triage` must est
 
 ## Inbox Triage Profile format
 
-Use the compact structure below for review and the saved Page. Use stable category/rule IDs so downstream skills can reference individual approvals. Omit empty rows; use “unknown” for relevant unavailable evidence. On the Page, use the native title instead of repeating the document heading in the body. Retain account, approval, and lookup fields because downstream skills need them.
+Use the compact structure below for review and the saved Page. The existing-organization and received-email-type sections are required, even when their result is a disclosed access gap or confirmed empty inventory. Do not replace them with a message-priority list. Use stable category/rule IDs so downstream skills can reference individual approvals. Omit empty rows; use “unknown” for relevant unavailable evidence. On the Page, use the native title instead of repeating the document heading in the body. Retain account, approval, and lookup fields because downstream skills need them. A limited-data proposal may be saved if explicitly approved, but must retain its coverage gaps and must not claim the organization analysis was completed.
 
 ```markdown
 # Inbox Triage Profile
@@ -80,8 +87,18 @@ Use the compact structure below for review and the saved Page. Use stable catego
 - Storage: intended destination before saving; canonical Page ID and returned link after saving.
 - Coverage: date range, messages/threads sampled, locations, access limits.
 
+## Existing folders, labels and categories
+Inventory coverage: complete, partial or unavailable; message sampling coverage reported separately. Distinguish provider totals from sample counts and list unsampled destinations.
+
+| Exact name / full path / returned ID | Kind: system folder, user folder, label or category | Observed email types and usage | Sample coverage / evidence / limitations |
+| --- | --- | --- | --- |
+
+## Types of email received and current organization
+| Email type | Representative sender/content pattern | Observed folder(s) | Applied labels/categories or verified none | Sample evidence / exceptions / confidence |
+| --- | --- | --- | --- | --- |
+
 ## Workflows and habits
-Brief findings, separating observations from inferences and unknowns.
+Explain consistent filing/tagging patterns, mixed usage and exceptions. Separate observed message state from inferred user intent or automation; summarize reply/follow-up habits only when relevant.
 
 ## User preferences
 Concise user-stated rules and exceptions from clarification, mapped to rule IDs.
@@ -102,7 +119,7 @@ Operating permission: NOT ACTIVATED by setup; email-triage records separate auth
 | --- | --- | --- | --- |
 
 ## Label/folder review
-Useful categories, possible redundancies, missing categories, and proposed changes.
+What to preserve; evidence-backed gaps or overlap; optional proposed changes kept separate from the existing inventory. No reorganization by default.
 
 ## Proposed rules
 | ID / precedence | Match conditions | Exceptions | Category / priority / explicit action / destination / scope | Evidence / confidence |

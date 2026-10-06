@@ -18,9 +18,9 @@ Use the same steps to add Outlook Calendar, Teams, Wrike, or SharePoint if neede
 
 ## 3  Set your rules
 
-> Set up my email assistant. Review my email habits, ask me about my preferences, and show me the proposed rules before changing anything.
+> Set up my email assistant. First inventory my existing folders, labels and categories. Analyze 90 days of email to show the types I receive and how I file or categorize them. Preserve my current structure, ask about unclear patterns, and show me the proposed rules. Do not change my mailbox.
 
-Answer the questions and correct anything that looks wrong. When ready, say: “I approve these rules. Save them in my private ChatGPT Space.” Wait for the saved profile link. Setup does not change your inbox.
+Review the folder/category inventory and email-type findings, then answer the questions and correct anything that looks wrong. A list of urgent messages is not the setup analysis. When ready, say: “I approve these rules. Save them in my private ChatGPT Space.” Wait for the saved profile link. Setup does not change your inbox.
 
 ## 4  Try it before turning it on
 

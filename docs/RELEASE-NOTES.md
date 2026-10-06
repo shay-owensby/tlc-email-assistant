@@ -1,5 +1,11 @@
 # Release notes
 
+## 0.7.1 — October 6, 2026
+
+- Corrects setup-email to lead with an inventory of actual folders, labels and categories, followed by evidence of email types and current filing/tagging habits. An urgent-message digest is not the setup deliverable.
+- Starts with 90 days, preserves the existing structure by default, and samples older mail only where needed to understand sparse destinations. Separates inventory completeness, message sampling, unavailable fields and actual empty results.
+- Requires organization findings and evidence-based questions before rule approval, with matching setup UI instructions and client guidance. Setup remains mailbox-read-only and saves a profile only after approval.
+
 ## 0.7.0 — October 6, 2026
 
 - Adds requested-actions for direct email sends, unsubscribe, selected-message archiving, calendar changes, Teams posts and SharePoint document changes, subject to live connector support. Each external action requires a direct user request; scheduled inbox and meeting runs stay draft-only.
